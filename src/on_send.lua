@@ -4,12 +4,12 @@
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 
 local echo = echo
-local S = core.get_translator("echo")
+local S, PS = core.get_translator("echo")
 
 local huds = {}
 local hud_type_name = core.features.hud_def_type_field and "type" or "hud_elem_type"
 
-local function update_hud(player)
+local function update_hud(player, on_join)
     local counter = 0
     local name = player:get_player_name()
     local storage = echo.get_notifications_entry(name)
@@ -23,6 +23,12 @@ local function update_hud(player)
         player:hud_change(huds[name], "text", "")
     else
         player:hud_change(huds[name], "text", S("@1 unread notifications", counter))
+        if on_join then
+            core.chat_send_player(name, core.colorize("#C5FF7A", PS(
+                "@1 unread notification. Type /echo in the chatroom to check it out.",
+                "@1 unread notifications. Type /echo in the chatroom to check them out.",
+                counter, counter)))
+        end
     end
 end
 
@@ -36,7 +42,7 @@ core.register_on_joinplayer(function(player)
         text = "",
         number = 0xffffff,
     })
-    update_hud(player)
+    return update_hud(player, true)
 end)
 
 core.register_on_leaveplayer(function(player)
