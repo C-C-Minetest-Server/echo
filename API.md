@@ -36,9 +36,9 @@ echo.register_event_type("echo:test_more", {
 
 ### `onclick` handler in notifications
 
-The `onclick` handler takes three arguments, `notifictaion`, `player`, and `ctx`. If the handler returned a function, it should be a function accepting the same set of arguments and will be executed before any other things happens. If the latter function returns a non-`nil` value (which should be a valid Flow element), it will be replacing the GUI.
+The `onclick` handler takes three arguments, `notifictaion`, `player`, and `ctx`. If the handler returns a function, it should be a function accepting the same set of arguments and will be executed before any other things happen. If the latter function returns a non-`nil` value (which should be a valid Flow element), it will replace the GUI.
 
-In the replaced GUI, you can set the `on_event` field of a button (or any elements that would trigger an event) to `echo.on_event_reset_after_click`. When that button is click (or otherwise triggered an event), the GUI returns to its initial state.
+In the replaced GUI, you can set the `on_event` field of a button (or any elements that would trigger an event) to `echo.on_event_reset_after_click`. When that button is clicked (or otherwise triggered an event), the GUI returns to its initial state.
 
 ## Send notifications
 
