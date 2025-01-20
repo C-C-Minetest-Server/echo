@@ -50,6 +50,14 @@ function echo.register_on_read_message(func)
     echo.registered_on_read_message[#echo.registered_on_read_message + 1] = func
 end
 
+echo.registered_on_delete_message = {}
+function echo.register_on_delete_message(func)
+    assert(type(func) == "function", string.format(
+        "Invalid type fo argument func (function expected, got %s)", type(func)))
+
+    echo.registered_on_delete_message[#echo.registered_on_delete_message + 1] = func
+end
+
 -- source: https://gist.github.com/jrus/3197011
 local random = math.random
 local function new_uuid()

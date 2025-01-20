@@ -104,10 +104,14 @@ local function render_notif_row(event, notification)
                 on_event = function(e_player)
                     local e_name = e_player:get_player_name()
                     local storage = echo.get_notifications_entry(e_name)
+                    event = echo.get_event(event)
 
                     for i, s_event in ipairs(storage) do
                         if s_event == event then
                             table.remove(storage, i)
+                            for _, func in ipairs(echo.registered_on_delete_message) do
+                                func(event, echo.event_to_notification(event))
+                            end
                             echo.log_notifications_modification(e_name)
                             return true
                         end
@@ -185,6 +189,9 @@ echo.echo_gui = flow.make_gui(function(player, ctx)
 
                         for i=#e_storage, 1, -1 do
                             local e_event = e_storage[i]
+                            for _, func in ipairs(echo.registered_on_delete_message) do
+                                func(e_event, echo.event_to_notification(e_event))
+                            end
                             if os.date("%Y/%m/%d", e_event.time) == event_day then
                                 table.remove(e_storage, i)
                             end

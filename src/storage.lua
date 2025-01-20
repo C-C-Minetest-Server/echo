@@ -60,7 +60,10 @@ end
 ---@param name string The name of the player
 function echo.clear_notifications_entry(name)
     local storage = echo.get_notifications_entry(name)
-    for i in ipairs(storage) do
+    for i, event in ipairs(storage) do
+        for _, func in ipairs(echo.registered_on_delete_message) do
+            func(event, echo.event_to_notification(event))
+        end
         storage[i] = nil
     end
     echo.log_notifications_modification(name)

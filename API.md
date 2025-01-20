@@ -57,3 +57,4 @@ echo.send_event_to(player_name, {
 * `echo.register_on_send_event(function(event, notification))`: Called when an event is sent
   * You can get the target player in `event.to`.
 * `echo.register_on_read_message(function(event, notification))`: Called when an notification is read
+* `echo.register_on_delete_message(function(event, notification))`: Called when an notification is deleted

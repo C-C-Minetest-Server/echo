@@ -64,10 +64,13 @@ echo.register_on_send_event(function(event, notification)
     end
 end)
 
-echo.register_on_read_message(function(event)
+local function simple_update(event)
     local name = event.to
     local player = core.get_player_by_name(name)
     if player and huds[name] then
         update_hud(player)
     end
-end)
+end
+
+echo.register_on_read_message(simple_update)
+echo.register_on_delete_message(simple_update)
