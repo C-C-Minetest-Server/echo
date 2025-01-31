@@ -110,7 +110,7 @@ local function render_notif_row(event, notification)
                         if s_event == event then
                             table.remove(storage, i)
                             for _, func in ipairs(echo.registered_on_delete_message) do
-                                func(event, echo.event_to_notification(event))
+                                func(event, notification)
                             end
                             echo.log_notifications_modification(e_name)
                             return true
@@ -171,8 +171,9 @@ echo.echo_gui = flow.make_gui(function(player, ctx)
                         for _, e_event in ipairs(e_storage) do
                             if os.date("%Y/%m/%d", e_event.time) == event_day then
                                 e_event.read = true
+                                local e_notification = echo.event_to_notification(event)
                                 for _, func in ipairs(echo.registered_on_read_message) do
-                                    func(e_event, echo.event_to_notification(e_event))
+                                    func(event, e_notification)
                                 end
                             end
                         end
@@ -189,8 +190,9 @@ echo.echo_gui = flow.make_gui(function(player, ctx)
 
                         for i=#e_storage, 1, -1 do
                             local e_event = e_storage[i]
+                            local e_notification = echo.event_to_notification(event)
                             for _, func in ipairs(echo.registered_on_delete_message) do
-                                func(e_event, echo.event_to_notification(e_event))
+                                func(event, e_notification)
                             end
                             if os.date("%Y/%m/%d", e_event.time) == event_day then
                                 table.remove(e_storage, i)
