@@ -1,0 +1,27 @@
+# textdomain: echo
+Show notifications=
+You must be online to run this command.=
+Unknown notification=
+Delete=
+All read=
+Delete all=
+No notifications.=
+Sure?=
+Clear=
+Cancel=
+All notifications=
+@1 unread notifications=
+New notification: @1.=
+Type /echo in the chatroom to check it out.=
+Test event: Simple=
+Description: @1=
+Test event: Show more=
+Send testing notifications to yourself=
+[<description>]=
+Test notifications sent.=
+This is the raw data of the event:=
+More about: @1=
+Unknown events=
+Unknown event: @1=
+You got a notification that the system cannot identify.=
+You got a notification that the system cannot identify. An uninstalled mod might cause this.=

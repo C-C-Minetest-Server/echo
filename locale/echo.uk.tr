@@ -1,0 +1,27 @@
+# textdomain: echo
+Show notifications=Показати сповіщення
+You must be online to run this command.=Ви маєте бути в мережі, щоб запустити цю команду.
+Unknown notification=Невідоме сповіщення
+Delete=Видалити
+All read=Прочитано
+Delete all=Очистити
+No notifications.=Немає сповіщень.
+Sure?=Ви впевнені?
+Clear=Очистити
+Cancel=Скасувати
+All notifications=Всі сповіщення
+@1 unread notifications=Непрочитані сповіщення [@1]
+New notification: @1.=Нове сповіщення: @1.
+Type /echo in the chatroom to check it out.=Введіть /echo в чат, аби переглянути.
+Test event: Simple=Проста тестова подія
+Description: @1=Опис: @1
+Test event: Show more=Докладна текстова подія
+Send testing notifications to yourself=Надсилає тестові сповіщення собі
+[<description>]=[<опис>]
+Test notifications sent.=Тестове сповіщення надіслано.
+This is the raw data of the event:=Це чисті дані події:
+More about: @1=Більше про: @1
+Unknown events=Невідомі події
+Unknown event: @1=Невідома подія: @1
+You got a notification that the system cannot identify.=Не ідентифіковано
+You got a notification that the system cannot identify. An uninstalled mod might cause this.=Ви отримали сповіщення, яке система не може ідентифікувати. Це може бути спричинено видаленим модом.
