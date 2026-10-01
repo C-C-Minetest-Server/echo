@@ -1,6 +1,10 @@
 # textdomain: echo
+
+##[ src/callbacks.lua ]##
 Show notifications=
 You must be online to run this command.=
+
+##[ src/gui.lua ]##
 Unknown notification=
 Delete=
 All read=
@@ -10,16 +14,25 @@ Sure?=
 Clear=
 Cancel=
 All notifications=
+
+##[ src/on_send.lua ]##
 @1 unread notifications=
 New notification: @1.=
-Type /echo in the chatroom to check it out.=
+Type /notifications in the chatroom to check it out.=
+
+##[ src/tests.lua ]##
 Test event: Simple=
 Description: @1=
 Test event: Show more=
 Send testing notifications to yourself=
 [<description>]=
 Test notifications sent.=
+
+##[ src/tests.lua ]##
+##[ src/utils.lua ]##
 This is the raw data of the event:=
+
+##[ src/utils.lua ]##
 More about: @1=
 Unknown events=
 Unknown event: @1=
