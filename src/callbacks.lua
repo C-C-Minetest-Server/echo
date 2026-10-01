@@ -6,7 +6,7 @@
 local echo = echo
 local S = core.get_translator("echo")
 
-core.register_chatcommand("echo", {
+local ECHO_COMMAND_DEFINITION = {
     description = S("Show notifications"),
     func = function(name)
         local player = core.get_player_by_name(name)
@@ -17,4 +17,9 @@ core.register_chatcommand("echo", {
         echo.echo_gui:show(player)
         return true
     end,
-})
+}
+
+core.register_chatcommand("echo", table.copy(ECHO_COMMAND_DEFINITION))
+core.register_chatcommand("notif", table.copy(ECHO_COMMAND_DEFINITION))
+core.register_chatcommand("notification", table.copy(ECHO_COMMAND_DEFINITION))
+core.register_chatcommand("notifications", table.copy(ECHO_COMMAND_DEFINITION))

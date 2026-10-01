@@ -25,8 +25,8 @@ local function update_hud(player, on_join)
         player:hud_change(huds[name], "text", S("@1 unread notifications", counter))
         if on_join then
             core.chat_send_player(name, core.colorize("#C5FF7A", PS(
-                "@1 unread notification. Type /echo in the chatroom to check it out.",
-                "@1 unread notifications. Type /echo in the chatroom to check them out.",
+                "@1 unread notification. Type /notifications in the chatroom to check it out.",
+                "@1 unread notifications. Type /notifications in the chatroom to check them out.",
                 counter, counter)))
         end
     end
@@ -56,7 +56,7 @@ echo.register_on_send_event(function(event, notification)
     if player then
         core.chat_send_player(name, core.colorize("#C5FF7A",
             S("New notification: @1.", notification.title or event.type) .. "\n" ..
-            S("Type /echo in the chatroom to check it out.")))
+            S("Type /notifications in the chatroom to check it out.")))
 
         if huds[name] then
             update_hud(player)
